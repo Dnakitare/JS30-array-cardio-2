@@ -57,12 +57,22 @@
 			});
 			console.log(comment);
 			// or
-			const commentS = comments.find(commentS => (commentS.id === 823423));
+			const commentS = comments.find(comment => (comment.id === 823423));
 			console.log(commentS);
 
 			// Array.prototype.findIndex()
 			// Find the comment with this ID
+			const index = comments.findIndex(comment => (comment.id === 823423));
+			console.log(index);
 			// delete the comment with the ID of 823423
+			comments.splice(index, 1); // splice it out of the array
+			console.table(comments);
+			// or (remember that the splice has already deleted the comment from the original!!
+			const newComments = [
+				...comments.slice(0, index),
+				...comments.slice(index + 1)
+			];
+			console.table(newComments);
 		</script>
 
 	</body>
